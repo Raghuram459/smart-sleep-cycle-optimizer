@@ -1,20 +1,15 @@
 # Smart Sleep Cycle Optimizer
-# -------------------------------------------
-
 import datetime
 from pathlib import Path
 
 import pandas as pd
 import matplotlib.pyplot as plt
 import requests
-
-
-# ---------------- Configuration ----------------
+# Configuration 
 DATA_FILE = Path(__file__).parent / "sleep_history.csv"
 DEFAULT_CITY = "Vellore"
 
-
-# ---------------- Data Loading ----------------
+# Data Loading
 def load_sleep_history():
     """Load sleep history from CSV if it exists."""
     if DATA_FILE.exists():
@@ -23,9 +18,7 @@ def load_sleep_history():
 
 
 sleep_history = load_sleep_history()
-
-
-# ---------------- Weather Tip ----------------
+# Weather Tip 
 def get_weather_tip(city: str = DEFAULT_CITY) -> str:
     """Fetch temperature and return sleep advice."""
     try:
@@ -87,8 +80,7 @@ def suggest_habits(avg_sleep: float, mood_trend: float) -> str:
 
     return suggestion
 
-
-# ---------------- Features ----------------
+# Features
 def sleep_now(age: int):
     """Suggest wake-up times if the user sleeps now."""
     now = datetime.datetime.now()
@@ -189,7 +181,7 @@ def analyze_history():
     plt.show()
 
 
-# ---------------- Main Menu ----------------
+# Main Menu
 def main():
     print("****** SMART SLEEP CYCLE OPTIMIZER ******")
 
